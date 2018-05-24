@@ -1,18 +1,10 @@
-light = game.Lighting;
-currentmap = nil;
-maps = light.Maps:GetChildren();
-m = Instance.new("Message", game.Workspace);
+light = game.Lighting
+currentmap = nil
+maps = light.Maps:GetChildren()
+m = Instance.new("Message", game.Workspace)
 time = 300
 
 function choosemap(lighting, placein)
-    while wait(1) do 
-        time = time - 1
-        repeat wait(1) until time = 0
-        if time == 0 then 
-            time = 300
-        end    
-    end
-
     local map = math.random(#maps);
     m.Text = "Choosing Map..."
     wait(3)
@@ -28,7 +20,7 @@ end
 function endmap(lighting)   
     if currentmap ~= nil then
         local map = currentmap
-
+        map.Parent = lighting
     else
         error("Currentmap is nil.")
     end
